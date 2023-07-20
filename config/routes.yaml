@@ -3,15 +3,19 @@ controllers:
     path: ../src/Controller/
     namespace: App\Controller
   type: attribute
+
 home:
   path: /
   controller: App\Controller\IndexController::index
+
 vehicule:
   path: /vehicule
   controller: App\Controller\VehiculeController::vehicule
+
 contact:
   path: /contact
   controller: App\Controller\ContactController::contact
+
 commentaire:
   path: /commentaire
   controller: App\Controller\CommentaireController::create
