@@ -36,7 +36,6 @@ class IndexController extends AbstractController
         return $this->render('commentaire/Accueil.html.twig', [
             'commentaires' => $commentaires,
             'form' => $form->createView(),
-            // Pass the login form to the view
             'loginForm' => $loginForm->createView(),
         ]);
     }
