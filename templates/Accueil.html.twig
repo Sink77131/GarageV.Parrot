@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garage V.Parrot</title>
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/accueil.css" />
+    
+  </head>
+
+  <body>
+    <!-- En-tête -->
+    <header class="header-content">
+      <div class="logo"></div>
+
+      <!-- Barre de navigation -->
+      <div class="navbar">
+        <a href="{{ path('app_index') }}">Accueil</a>
+        <a href="{{ path('app_vehicule') }}">Vehicule</a>
+        <a href="{{ path('app_contact') }}">Contact</a>
+      </div>
+
+      <!-- Formulaire de connexion -->
+      <div class="login-form-wrapper">
+        <div class="login-form">
+          {% block loginForm  %} 
+            {{ form(loginForm) }} 
+          {% endblock %}
+        </div>
+      </div>
+    </header>
+
+    <div class="header-overlay"></div>
+
+    <!-- Contenu principal -->
+    <main class="main-grid">
+      <!-- Section des commentaires -->
+      <div class="commentaire">
+        {% block body %} 
+            {% for commentaire in commentaires %}
+            {% endfor %}
+        {% endblock %}
+      </div>
+
+      <!-- Section de présentation -->
+      <div class="presentation">
+        <p class="text-container">
+          Vincent Parrot, fort de ses 15 années d'expérience dans la réparation
+          automobile, a ouvert son propre garage à Toulouse en 2021. Depuis 2
+          ans, il propose une large gamme de services : réparation de la
+          carrosserie et de la mécanique des voitures ainsi que leur entretien
+          régulier pour garantir leur performance et leur sécurité.
+        </p>
+
+        <img
+          class="image-container"
+          src="image/istockphoto-1347150429-612x612.jpg"
+        />
+      </div>
+
+      <!-- Section de vente de voitures -->
+      <div class="vente-voitures">
+        <img class="image-container" src="image/28837609_s.jpg" />
+
+        <p class="text-container">
+          De plus, le Garage V. Parrot met en vente des véhicules d'occasion
+          afin d'accroître son chiffre d'affaires. Vincent Parrot considère son
+          atelier comme un véritable lieu de confiance pour ses clients et leurs
+          voitures doivent, selon lui, à tout prix être entre de bonnes mains.
+        </p>
+      </div>
+
+      <!-- Section des horaires -->
+      <div class="horaires">
+        <p class="titre-horaires">Horaires D’ouverture</p>
+
+        <section class="text-container">
+          lun.: 08:45-12:00,14:00-18:00 <br />
+          Mar.: 08:45-12:00,14:00-18:00 <br />
+          Mer.: 08:45-12:00,14:00-18:00 <br />
+          Jeu.: 08:45-12:00,14:00-18:00 <br />
+          Ven.: 08:45-12:00,14:00-18:00 <br />
+          Sam.: 08:45-12:00 <br />
+          Dim.: Fermé
+        </section>
+
+        <img class="image-container" src="logo/GarrageV.Parrot (1).png" />
+      </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="footer">
+        <ul class="footer-item">
+          <li>
+            <strong>Téléphone:</strong> 0115487956
+          </li>
+        </ul>
+        <ul class="footer-item">
+          <li>
+            <strong>Adresse:</strong> 185 avenue de Tarascon
+          </li>
+          <li>
+            <strong>Ville:</strong> Bordeaux 30072
+          </li>
+        </ul>
+        <ul class="footer-item">
+          <li>
+            <strong>Adresse.Mail:</strong> Vincent.Parrot
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+
+    <script>
+      // Fonction pour positionner la barre de défilement en bas
+      function scrollToBottom() {
+        var commentScroll = document.getElementById('comment-scroll');
+        commentScroll.scrollTop = commentScroll.scrollHeight;
+      }
+
+      // Appel de la fonction scrollToBottom après que tous les éléments de la page ont été chargés
+      window.addEventListener('load', function() {
+        scrollToBottom();
+      });
+    </script>
+
+  </body>
+
+</html>

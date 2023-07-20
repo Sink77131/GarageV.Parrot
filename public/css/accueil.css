@@ -1,0 +1,117 @@
+/* -------- Configuration de la section main-grid --------- */
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  padding: 20px;
+  grid-template-areas:
+    "commentaire presentation presentation"
+    "commentaire vente-voitures vente-voitures"
+    "commentaire horaires horaires";
+}
+
+/* -------- Configuration de la section commentaire --------- */
+
+.commentaire {
+  grid-area: commentaire;
+}
+
+/* -------- Configuration de la section presentation --------- */
+
+.presentation {
+  grid-area: presentation;
+  display: flex;
+  margin-top: 20px;
+}
+
+.presentation .text-container {
+  text-align: end;
+  margin-right: 2em;
+}
+
+.presentation .image-container {
+  grid-area: image-presentation;
+}
+
+.image-container {
+  width: 30vw;
+  height: auto;
+}
+
+/* -------- Configuration de la section vente-voitures --------- */
+
+.vente-voitures {
+  grid-area: vente-voitures;
+  display: flex;
+}
+
+.vente-voitures .text-container {
+  margin-left: 2em;
+}
+
+.vente-voitures .image-container {
+  grid-area: image-vente-voitures;
+}
+
+/* -------- Configuration de la section horaires --------- */
+
+.horaires {
+  grid-area: horaires;
+  display: flex;
+  justify-content: space-around;
+}
+
+.titre-horaires {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* -------- Configuration pour les écrans de taille inférieure à 1200px --------- */
+
+@media screen and (max-width: 1200px) {
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .presentation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .vente-voitures {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .horaires {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .commentaire {
+    order: 1;
+    width: 100%;
+    height: 800px;
+    border-radius: 0;
+    bottom: 0;
+  }
+  .comment-form {
+    height: 20%;
+  }
+  .presentation .image-container,
+  .vente-voitures .image-container,
+  .horaires .image-container {
+    width: 70vw;
+    height: auto;
+  }
+}

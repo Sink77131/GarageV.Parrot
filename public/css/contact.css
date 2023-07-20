@@ -1,0 +1,137 @@
+/* -------- Configuration de la grille principale --------- */
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  padding: 20px;
+  grid-template-areas:
+    "commentaire presentation presentation"
+    " horaires contact contact";
+}
+
+/* -------- Configuration de la section commentaire --------- */
+
+.commentaire {
+  grid-area: commentaire;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+  flex-shrink: 0;
+  border-radius: 0;
+}
+
+/* -------- Configuration de la section horaires --------- */
+
+.horaires {
+  grid-area: horaires;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.horaires .text-container {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: white;
+  height: 100%;
+}
+
+/* -------- Configuration de la section presentation/localisation --------- */
+
+.presentation {
+  grid-area: presentation;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.location-container .text-container {
+  text-align: start;
+  margin-right: 2em;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-wrapper iframe {
+  width: 80%;
+  height: 80%;
+}
+
+/* -------- Configuration de la section contact --------- */
+
+.contact {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-container .text-container {
+  text-align: center;
+}
+
+.contact-container .image-container {
+  width: 50%;
+  height: 70%;
+  margin-left: 2em;
+}
+
+/* -------- Configuration pour les écrans de taille inférieure à 1200px --------- */
+
+@media screen and (max-width: 1200px) {
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .commentaire {
+    order: 4;
+  }
+  .presentation {
+    order: 1;
+  }
+  .contact {
+    order: 2;
+  }
+  .horaires {
+    order: 3;
+  }
+
+  .presentation,
+  .contact {
+    width: 100%;
+  }
+
+  .location-container,
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

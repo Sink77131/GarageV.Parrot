@@ -1,0 +1,50 @@
+{% extends 'Contact.html.twig' %}
+
+{% block body %}
+<div class="commentaire-container">
+    <div class="commentaire-titre">Commentaires</div>
+    <div class="commentaire-scroll" id="comment-scroll">
+        {% if commentaires is not empty %}
+            {% for commentaire in commentaires %}
+                <div class="comment">
+                    <h2><strong>{{ commentaire.no }}</strong></h2>
+                    <h3>{{ commentaire.content }}</h3>
+                    <div class="star-container">
+                        {% for i in 1..5 %}
+                            {% if i <= commentaire.note %}
+                                <span class="star">★</span> {# Étoile pleine #}
+                            {% else %}
+                                <span class="star">☆</span> {# Étoile vide #}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun commentaire trouvé</p>
+        {% endif %}
+    </div>
+    <div class="comment-form">
+        <h3>Nouveau commentaire</h3>
+        {{ form_start(form) }}
+        {{ form_widget(form.no, { 'attr': { 'placeholder': 'Pseudo' } }) }}
+        {{ form_widget(form.content, { 'attr': { 'placeholder': 'Entrez votre commentaire ici...' } }) }}
+        {{ form_widget(form.note) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+
+<script>
+    // Fonction pour positionner la barre de défilement en bas
+    function scrollToBottom() {
+        var commentScroll = document.getElementById('comment-scroll');
+        commentScroll.scrollTop = commentScroll.scrollHeight;
+    }
+
+    // Appel de la fonction scrollToBottom après que tous les éléments de la page ont été chargés
+    window.addEventListener('load', function() {
+        scrollToBottom();
+    });
+</script>
+
+{% endblock %}
