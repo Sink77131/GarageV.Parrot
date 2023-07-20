@@ -1,4 +1,4 @@
-{% extends 'Accueil.html.twig' %}
+{% extends 'accueil.html.twig' %}
 
 {% block body %}
 <div class="commentaire-container">
@@ -35,13 +35,13 @@
 </div>
 
 <script>
-    // Fonction pour positionner la barre de défilement en bas
+    
     function scrollToBottom() {
         var commentScroll = document.getElementById('comment-scroll');
         commentScroll.scrollTop = commentScroll.scrollHeight;
     }
 
-    // Appel de la fonction scrollToBottom après que tous les éléments de la page ont été chargés
+    
     window.addEventListener('load', function() {
         scrollToBottom();
     });

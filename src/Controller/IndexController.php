@@ -33,7 +33,7 @@ class IndexController extends AbstractController
             return $this->redirectToRoute('app_index');
         }
     
-        return $this->render('commentaire/Accueil.html.twig', [
+        return $this->render('commentaire/accueil.html.twig', [
             'commentaires' => $commentaires,
             'form' => $form->createView(),
             'loginForm' => $loginForm->createView(),
